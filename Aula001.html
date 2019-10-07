@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Curso Vue.JS</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- <h1>Curso vue.JS</h1> -->
+
+
+    <!-- <div id="app" v-bind:title="titulo"> -->
+    <div id="app" :title="titulo"> <!-- <Forma mais usado para uso do bind> -->
+        <h1>{{ message }}</h1>    
+        <h3 v-if="condicao === 1"> Subtitulo 1</h3>
+        <h3 v-else-if="condicao === 2">Subtitulo 2</h3>
+        <h3 v-else-if="condicao === 3">Subtitulo 3</h3>
+        <h3 v-else>Subtitulo 4</h3>
+    </div>    
+
+    <div id="app2" :title="titulo"> <!-- <Forma mais usada para uso do bind :> -->
+            <h1 v-text="message"></h1>    
+            <ol>
+                <!-- <li v-for="cidade in cidades" :key="cidade.nome"> deve ser usado o key quando for usado o v-for 
+                        {{cidade}}
+                </li>li> -->
+                <li v-for="cidade in cidades" :key="cidade.nome"> <!-- deve ser usado o key quando for usado o v-for -->
+                    <strong>Nome: </strong>{{cidade.nome}} ..
+                    <strong>Código: </strong>
+                    <!-- <span v-text="cidade.codigo" style="color: red;"></span> -->
+                    <span v-html="cidade.codigo" style="color: red;"></span>
+                </li>
+            </ol>
+        </div>
+
+        <div id="app3" :title="titulo"> <!-- <Forma mais usada para uso do bind :> -->
+            <h1 v-text="message"></h1>    
+            <ol>
+            <form action="#" method="POST">
+                <input type="text" name="nome" value="" v-model="nome" />
+                <select name="selectCidade" id="selectCidade" v-model="cidadeSelecionada">
+                    <option value="">Selecione uma opção</option>>
+                    <option :value="cidade.codigo" v-for="cidade in cidades" :key="cidade.codigo" v-text="cidade.nome"></option>>
+                </select>
+                <input type="button" v-on:click="mostraCodigoSelect" value="Mostrar" />
+             </form>
+            </ol>
+        </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Curso Vue.JS',
+            /*titulo: "Teste Titulo" ,*/
+            titulo: new Date().toLocaleString(),/*teste para impressão do titulo como js assume qualquer tipo */ 
+            /*condicao: false*/
+            condicao: (Math.floor(Math.random()*4)+1)
+            
+        }
+        });
+
+        var app2 = new Vue({
+        el: '#app2',
+        data: {
+            message: 'Teste V-for',            
+            titulo: new Date().toLocaleString(),            
+            /* cidades: ["Belo Horizonte", "São Paulo", "Rio de Janeiro" ] */
+            cidades: [
+                {"nome": "Belo Horizonte","codigo": "<span>31</span>"},
+                {"nome": "São Paulo","codigo": "<span>11</span>"}, 
+                {"nome": "Rio de Janeiro","codigo": "<span>21</span>"} 
+                ]            
+        }
+        });
+
+        var app3 = new Vue({
+        el: '#app3',
+        data: {
+            message: 'Teste V-Model',            
+            titulo: new Date().toLocaleString(),                        
+            cidades: [
+                {"nome": "Belo Horizonte","codigo": 31},
+                {"nome": "São Paulo","codigo": 11}, 
+                {"nome": "Rio de Janeiro","codigo": 21} 
+                ],
+            cidadeSelecionada: "",
+            nome: ""
+        },
+        methods: {
+            mostraCodigoSelect(){
+                console.log(this.cidadeSelecionada);
+                alert(this.cidadeSelecionada);
+            }
+            
+        }
+        });
+
+
+    </script>
+</body>
+</html>

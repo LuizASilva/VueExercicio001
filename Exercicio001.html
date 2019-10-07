@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Curso Vue.JS - Exercicio 001</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app" :title="titulo"> <!-- <Forma mais usada para uso do bind :> -->
+            <span style="color: blue;"><h1 v-text="Exercicio"></h1></span>
+            
+            <h4>Nome: </h4>
+            <h4><input type="text" name="nome" value="" v-model="nome" /></h4>
+
+            <h4>Em qual unidade você está alocado ? </h4><br>
+        
+            <form action="#" method="POST">
+                <select name="selectlocal" id="selectlocal" v-model="sedeselecionada">
+                    <option value="">Selecione sua sede</option>
+                    <option :value="local.codigo" v-for="local in locais" :key="local.codigo" v-text="local.nome"></option>>
+                </select>
+
+                <h4>Atividades na Empresa: </h4>
+
+                <textarea name="atividades" rows="10" cols="100" v-model="atividades">Informe suas atividades.</textarea><br><br>
+
+                <input type="button" v-on:click="mostradados" value="Mostrar" />
+            </form>                         
+
+            <div v-if="exibedados">
+                <h2 style="color: red;">Resultados </h2>
+                <p>Nome: {{nome}}</p>
+                <p>Unidade: {{sedeselecionada}}</p>
+                <p>Ativades: {{atividades}}</p>      
+            </div>
+        </div>    
+
+    <script type="text/javascript">
+
+        var app = new Vue({
+        el: '#app',
+        data: {
+            Exercicio: 'Curso de Vue.JS - Exercicio 1',            
+            titulo: "Exercicio 001",
+            atividades: "",
+            nome: "",
+            locais: [
+                {"nome": "Tupis","codigo": 1},
+                {"nome": "Catalão","codigo": 2}, 
+                {"nome": "Bhtrans","codigo": 3} 
+                ],
+            sedeselecionada: "",
+            exibedados: false
+
+        },
+        methods: {
+            mostradados(){
+                if(this.nome === "" || this.sedeselecionada === "" || this.atividades === ""){
+                    alert("Favor preencher todos os dados!");
+                }                
+                else
+                {
+                    this.exibedados = true;
+                }                
+            }
+            
+        }
+        });
+
+
+    </script>
+</body>
+</html>
