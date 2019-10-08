@@ -10,36 +10,49 @@
 <body>
 
     <div id="app" :title="Exercicio"> <!-- <Forma mais usada para uso do bind :> -->
-            <span style="color: blue;"><h1 v-text="Exercicio"></h1></span>
+            <!-- <span style="color: blue;"><h1 v-text="Exercicio"></h1></span> -->
+            <titulo :titulo="Exercicio" cor="blue"></titulo>
             
             <h4>Nome: </h4>
             <h4><input type="text" name="nome" value="" v-model="nome" /></h4>
 
-            <h4>Em qual unidade você está alocado ? </h4><br>
+            <h4>Em qual unidade você está alocado ? </h4>
         
             <form action="#" method="POST">
                 <select name="selectlocal" id="selectlocal" v-model="sedeselecionada">
                     <option value="">Selecione sua sede</option>
-                    <option :value="local.codigo" v-for="local in locais" :key="local.codigo" v-text="local.nome"></option>>
+                    <option :value="local" v-for="local in locais" :key="local.codigo" v-text="local.nome"></option>
                 </select>
 
                 <h4>Atividades na Empresa: </h4>
 
-                <textarea name="atividades" rows="10" cols="100" v-model="atividades">Informe suas atividades.</textarea><br><br>
+                <textarea name="atividades" rows="5" cols="80" v-model="atividades">Informe suas atividades.</textarea><br><br>
 
                 <input type="button" v-on:click="mostradados" value="Mostrar" /><br><br>
             </form>                         
 
-            <div :title="titulo" v-if="exibedados" style="border: 1px solid black;">
-                <h2 style="color: red;">Resultados </h2>
+            <div v-if="exibedados" style="border: 1px solid black;">
+                <!-- <h2 style="color: red;">Resultados </h2> -->
+                <!-- <titulo2></titulo2> -->
+                <titulo v-bind:titulo="titulo" cor="red"></titulo>
                 <p><strong>Nome: </strong>{{nome}}</p>
-                <p><strong>Unidade: </strong>{{sedeselecionada}}</p>
+                <p><strong>Unidade: </strong>{{sedeselecionada.nome}}</p>
                 <p><strong>Ativades: </strong>{{atividades}}</p>
                 <br>
             </div>
         </div>    
 
     <script type="text/javascript">
+
+        Vue.component('titulo',
+            {   props: ['titulo','cor'], /* Propriedades(prop) criadas para reutilização no sistema */
+                /* template: '<h1 style="color: blue;">{{titulo}}</h1>' */
+                template: '<h1 v-bind:style= "{color: cor}"> {{titulo}} </h1>' /* template: '<h1 :style= "{color: cor}"> {{titulo}} </h1>'  */
+            });
+
+        /* Vue.component('titulo2',
+            {template: '<h1 style="color: red;">Resultado</h1>'
+            }); */
 
         var app = new Vue({
         el: '#app',
