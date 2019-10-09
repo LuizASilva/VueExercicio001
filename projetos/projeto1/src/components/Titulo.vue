@@ -8,9 +8,18 @@
 <script>
 export default {
   
-    props: ['titulo', 'cor']
-
+    /* props: ['titulo', 'cor'] */
+    props: { 
+    titulo: {
+      type: String,
+      default: "Titulo"
+    },    
+    cor: {
+      type: String,
+      default: "red"
+    }
 }
+};
 </script>
 
 <style>
