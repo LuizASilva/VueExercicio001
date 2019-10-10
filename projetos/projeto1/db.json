@@ -1,0 +1,39 @@
+{
+    "registros":  [
+        {
+            "id": 1, 
+            "nome": "Paulo", 
+            "cargo": "Analista", 
+            "unidade": "Tupis", 
+            "salario": 4000.00
+        },
+        {
+            "id": 2, 
+            "nome": "Natália", 
+            "cargo": "Redatora", 
+            "unidade": "Sede", 
+            "salario": 2000.00
+        },
+        {
+            "id": 3, 
+            "nome": "Jorge", 
+            "cargo": "Gerente", 
+            "unidade": "Bhtrans", 
+            "salario": 6000.00
+        },
+        {
+            "id": 4, 
+            "nome": "Maria", 
+            "cargo": "Gerente", 
+            "unidade": "Tupis", 
+            "salario": 6000.00
+        },
+        {
+            "id": 5, 
+            "nome": "Jośe", 
+            "cargo": "Analista", 
+            "unidade": "Sede", 
+            "salario": 4000.00
+        }
+    ]
+}

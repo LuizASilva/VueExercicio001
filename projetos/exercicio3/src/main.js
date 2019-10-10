@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Titulo from "./components/Titulo.vue"
+import Titulo from "./components/titulo.vue"
 import Tabela from "./components/tabela.vue"
 import VueRouter from 'vue-router'
 import axios from 'axios'
