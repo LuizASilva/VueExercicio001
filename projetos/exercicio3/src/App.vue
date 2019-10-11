@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <titulo titulo="Exercicio 3 - Luiz"></titulo>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+      data(){
+    return{
+      cabecalhos: ['id','Nome', 'Cargo', 'Unidade', 'salario']/*,
+      registros:  [
+        {id: 1, nome: "Paulo", cargo: "Analista", unidade: "Tupis", salario: 1000.00},
+        {id: 2, nome: "Natália", cargo: "Redatora", unidade: "Sede", salario: 2000.00}
+      ]*/
+    }
   }
 }
 </script>
