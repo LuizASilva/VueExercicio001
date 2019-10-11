@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <titulo titulo="Exercicio 3 - Luiz"></titulo>
+    
+    <titulo :titulo="titulo"></titulo>
+    <menus></menus>
+    <home></home>
   </div>
 </template>
 
@@ -9,14 +12,11 @@
 export default {
       data(){
     return{
-      cabecalhos: ['id','Nome', 'Cargo', 'Unidade', 'salario']/*,
-      registros:  [
-        {id: 1, nome: "Paulo", cargo: "Analista", unidade: "Tupis", salario: 1000.00},
-        {id: 2, nome: "Natália", cargo: "Redatora", unidade: "Sede", salario: 2000.00}
-      ]*/
+      titulo: "Exercicio 3 - Luiz Silva"      
     }
   }
 }
+
 </script>
 
 <style>

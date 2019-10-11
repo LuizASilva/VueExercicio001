@@ -1,10 +1,10 @@
 <template>
-<div>
-    <titulo{{titulo}}></titulo>
-    <menu{{nomelink}}></menu> 
-
+<div> 
+  <titulo v-bind:titulo="titulo"></titulo>
+  <menus></menus>
+         
     <h4>Nome: </h4>
-    <h4><input type="text" name="nome" value="" v-model="nome" />Digite seu nome</h4>
+    <h4><input type="text" name="nome" value="Digite seu nome" v-model="nome"></h4>
 
     <h4>Em qual unidade você está alocado ? </h4><br>
 
@@ -31,10 +31,6 @@
     titulo: {
       type: String,
       default: "Formulário Default"
-    },
-    nomelink: {
-      type: String,
-      default: "home"
     }
     },
      data(){
@@ -50,8 +46,14 @@
     }
   },
   methods:{  
-  salvadados(){             
-    alert('Dados salvos com sucesso.');
+  salvadados(){
+    if(this.nome === "" || this.sedeselecionada === "" || this.atividades === ""){
+       alert("Favor preencher todos os dados!");                    
+    }
+    else {            
+        alert('Dados salvos com sucesso.');
+        this.$router.push('/');
+  }    
   }
   }
 };

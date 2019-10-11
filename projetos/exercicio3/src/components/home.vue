@@ -1,7 +1,6 @@
 <template>
 <div>
-  <titulo{{titulo}}></titulo>
-  <menu{{nomelink}}></menu> 
+  <h3>Bem vindo ao Exercicio 3</h3>
   <br />
 </div>
 
@@ -14,10 +13,6 @@ export default {
     titulo: {
       type: String,
       default: "Home Default"
-    },
-    nomelink: {
-      type: String,
-      default: "home"
     }
     }
   };
