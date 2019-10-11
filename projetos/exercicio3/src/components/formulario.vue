@@ -4,8 +4,8 @@
   <menus></menus>
          
     <h4>Nome: </h4>
-    <h4><input type="text" name="nome" value="Digite seu nome" v-model="nome"></h4>
-
+    <!-- <h4><input type="text" name="nome" value="Digite seu nome" v-model="nome"></h4> -->
+    <h4><b-form-input type="text" name="nome" value="Digite seu nome" v-model="nome"></b-form-input></h4>
     <h4>Em qual unidade você está alocado ? </h4><br>
 
     <form action="#" method="POST">
